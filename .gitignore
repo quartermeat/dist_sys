@@ -13,6 +13,9 @@
 *.env
 
 
+# Python venv folder
+/env
+
 # Test binary, built with `go test -c`
 
 *.test
