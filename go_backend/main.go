@@ -3,9 +3,9 @@ package main
 import (
 	_ "image/png"
 
-	"github.com/quartermeat/go_scratch/app"
+	"github.com/quartermeat/dist_sys/go_backend/app"
 )
 
 func main() {
-	app.RunChat()
+	app.ListenAndServer()
 }

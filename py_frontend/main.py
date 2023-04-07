@@ -5,12 +5,12 @@ This module contains functions for connecting to a WebSocket server and sending/
 import json
 import websocket
 
-def on_message(ws, message):
+def on_message(webSocket, message):
     """
     Handle incoming messages from the server.
 
     Args:
-        ws: The WebSocket connection object.
+        webSocket: The WebSocket connection object.
         message: The message that was received.
 
     Returns:
@@ -18,12 +18,12 @@ def on_message(ws, message):
     """
     print(f"Received message: {message}")
 
-def on_error(ws, error):
+def on_error(webSocket, error):
     """
     Handle connection errors.
 
     Args:
-        ws: The WebSocket connection object.
+        webSocket: The WebSocket connection object.
         error: The error that occurred.
 
     Returns:
@@ -31,24 +31,24 @@ def on_error(ws, error):
     """
     print(f"Connection error: {error}")
 
-def on_close(ws):
+def on_close(webSocket):
     """
     Handle connection closure.
 
     Args:
-        ws: The WebSocket connection object.
+        webSocket: The WebSocket connection object.
 
     Returns:
         None.
     """
     print("Connection closed")
 
-def on_open(ws):
+def on_open(webSocket):
     """
     Handle connection opening.
 
     Args:
-        ws: The WebSocket connection object.
+        webSocket: The WebSocket connection object.
 
     Returns:
         None.
@@ -64,7 +64,7 @@ def on_open(ws):
 if __name__ == "__main__":
     # Establish a WebSocket connection to the server
     websocket.enableTrace(True)
-    ws = websocket.WebSocketApp("ws://localhost:8000/",
+    ws = websocket.WebSocketApp("ws://localhost:8000/ws",
                                 on_open=on_open,
                                 on_message=on_message,
                                 on_error=on_error,
