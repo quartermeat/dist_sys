@@ -6,6 +6,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/websocket"
+	"github.com/quartermeat/dist_sys/go_backend/errorlog"
 )
 
 type Message struct {
@@ -22,7 +23,7 @@ func handleWebSocket(w http.ResponseWriter, r *http.Request) {
 	// Upgrade the HTTP connection to a WebSocket connection
 	conn, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
-		GetLogger().LogError(err)
+		errorlog.GetLogger().LogError(err)
 		return
 	}
 	defer conn.Close()
@@ -32,7 +33,7 @@ func handleWebSocket(w http.ResponseWriter, r *http.Request) {
 		// Read the next message from the client
 		_, message, err := conn.ReadMessage()
 		if err != nil {
-			GetLogger().LogError(err)
+			errorlog.GetLogger().LogError(err)
 			break
 		}
 
@@ -40,7 +41,7 @@ func handleWebSocket(w http.ResponseWriter, r *http.Request) {
 		var msg Message
 		err = json.Unmarshal(message, &msg)
 		if err != nil {
-			GetLogger().LogError(err)
+			errorlog.GetLogger().LogError(err)
 			break
 		}
 
