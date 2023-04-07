@@ -22,7 +22,7 @@ func handleWebSocket(w http.ResponseWriter, r *http.Request) {
 	// Upgrade the HTTP connection to a WebSocket connection
 	conn, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
-		log.Println("Error upgrading connection:", err)
+		GetLogger().LogError(err)
 		return
 	}
 	defer conn.Close()
@@ -32,7 +32,7 @@ func handleWebSocket(w http.ResponseWriter, r *http.Request) {
 		// Read the next message from the client
 		_, message, err := conn.ReadMessage()
 		if err != nil {
-			log.Println("Error reading message:", err)
+			GetLogger().LogError(err)
 			break
 		}
 
@@ -40,7 +40,7 @@ func handleWebSocket(w http.ResponseWriter, r *http.Request) {
 		var msg Message
 		err = json.Unmarshal(message, &msg)
 		if err != nil {
-			log.Println("Error unmarshaling message:", err)
+			GetLogger().LogError(err)
 			break
 		}
 
