@@ -1,0 +1,7 @@
+{
+    "type": "chat",
+    "data": {
+      "username": "John",
+      "message": "Hello, world!"
+    }
+  }

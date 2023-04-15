@@ -1,0 +1,5 @@
+ERROR: 2023/04/06 22:41:50 errorLog.go:34: read tcp [::1]:8000->[::1]:54823: wsarecv: An existing connection was forcibly closed by the remote host.
+ERROR: 2023/04/08 13:57:06 errorLog.go:34: read tcp [::1]:8000->[::1]:58611: wsarecv: An existing connection was forcibly closed by the remote host.
+ERROR: 2023/04/08 13:57:13 errorLog.go:34: read tcp [::1]:8000->[::1]:58620: wsarecv: An existing connection was forcibly closed by the remote host.
+ERROR: 2023/04/08 13:57:35 errorLog.go:34: read tcp [::1]:8000->[::1]:58637: wsarecv: An existing connection was forcibly closed by the remote host.
+ERROR: 2023/04/14 22:44:26 errorLog.go:34: read tcp [::1]:8000->[::1]:60845: wsarecv: An existing connection was forcibly closed by the remote host.
